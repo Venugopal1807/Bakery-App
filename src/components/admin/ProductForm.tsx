@@ -92,9 +92,9 @@ export function ProductForm({ product, isOpen, onClose }: ProductFormProps) {
       router.refresh(); // Refresh tables strictly
       if (!product) reset(); // Clean fields if it was new
       onClose();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Mutation error:", err);
-      setError(err.message || "Failed to save the product.");
+      setError(err instanceof Error ? err.message : "Failed to save the product.");
     } finally {
       setIsSubmitting(false);
     }

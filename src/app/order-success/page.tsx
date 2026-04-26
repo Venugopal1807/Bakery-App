@@ -15,7 +15,7 @@ export default function OrderSuccessPage({
       <div className="max-w-md space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Order Confirmed!</h1>
         <p className="text-muted-foreground">
-          Thank you for your purchase. We've received your order and our bakers are getting ready.
+          Thank you for your purchase. We&apos;ve received your order and our bakers are getting ready.
         </p>
         
         {searchParams?.id && (

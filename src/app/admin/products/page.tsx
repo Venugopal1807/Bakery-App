@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { Product } from "@/types";
 import { ProductActions } from "@/components/admin/ProductActions";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -66,10 +67,12 @@ export default async function ProductsPage() {
                   >
                     <td className="p-4 align-middle">
                       <div className="h-10 w-10 overflow-hidden rounded-md border bg-muted">
-                        <img
+                        <Image
                           src={product.image_url}
                           alt={product.name}
-                          className="h-full w-full object-cover"
+                          width={80}
+                          height={80}
+                          className="object-cover rounded"
                         />
                       </div>
                     </td>

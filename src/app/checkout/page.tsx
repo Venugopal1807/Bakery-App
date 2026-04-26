@@ -86,9 +86,9 @@ export default function CheckoutPage() {
 
       clearCart();
       router.push(`/order-success?id=${orderId}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Order submission error:", err);
-      setServerError(err.message || "Something went wrong while processing your order. Please try again.");
+      setServerError(err instanceof Error ? err.message : "Something went wrong while processing your order. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
