@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 
-export default function OrderSuccessPage({
+export default async function OrderSuccessPage({
   searchParams,
 }: {
-  searchParams: { id?: string };
+  searchParams: Promise<{ id?: string }>;
 }) {
+  const { id } = await searchParams;
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 space-y-6">
       <div className="flex h-24 w-24 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
@@ -18,9 +20,9 @@ export default function OrderSuccessPage({
           Thank you for your purchase. We&apos;ve received your order and our bakers are getting ready.
         </p>
         
-        {searchParams?.id && (
+        {id && (
           <div className="mt-4 p-4 rounded-lg bg-muted text-sm">
-            Order Reference: <span className="font-mono font-bold">{searchParams.id}</span>
+            Order Reference: <span className="font-mono font-bold">{id}</span>
           </div>
         )}
       </div>
